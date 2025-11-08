@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -168,7 +169,8 @@
             gap: 15px;
         }
 
-        .theme-toggle, .language-toggle {
+        .theme-toggle,
+        .language-toggle {
             background: none;
             border: none;
             font-size: 1.2rem;
@@ -182,7 +184,8 @@
             justify-content: center;
         }
 
-        .theme-toggle:hover, .language-toggle:hover {
+        .theme-toggle:hover,
+        .language-toggle:hover {
             background-color: rgba(0, 0, 0, 0.05);
         }
 
@@ -283,7 +286,8 @@
             font-weight: 500;
         }
 
-        .filter-btn.active, .filter-btn:hover {
+        .filter-btn.active,
+        .filter-btn:hover {
             background-color: var(--primary);
             color: white;
             border-color: var(--primary);
@@ -345,6 +349,7 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
+            background-color: #f1f5f9;
         }
 
         .member-info {
@@ -611,14 +616,19 @@
             right: -100%;
             width: 85%;
             height: 100vh;
-            background-color:rgb(209, 202, 202);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 2000;
             transition: var(--transition);
-            box-shadow: -5px 0 15px rgba(48, 46, 46, 0.1);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             padding: 80px 30px 30px;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
+        }
+
+        .dark-theme .mobile-nav {
+            background: rgba(30, 41, 59, 0.95);
         }
 
         .mobile-nav.active {
@@ -644,6 +654,13 @@
             font-size: 1.5rem;
             color: var(--text);
             cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-close:active {
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
         .mobile-nav-links {
@@ -661,8 +678,14 @@
             font-size: 1.2rem;
             font-weight: 500;
             display: block;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .mobile-nav-links a:active {
+            background-color: rgba(37, 99, 235, 0.1);
+            transform: scale(0.98);
         }
 
         .mobile-nav-controls {
@@ -691,49 +714,52 @@
 
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content, .contact-content {
+
+            .about-content,
+            .contact-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero h1 {
                 font-size: 2.8rem;
             }
         }
 
         @media (max-width: 768px) {
+
             /* Hide desktop navigation */
             nav ul {
                 display: none;
             }
-            
+
             .mobile-menu {
                 display: block;
             }
-            
+
             .controls-container {
                 display: none;
             }
-            
+
             .mobile-sort-controls {
                 display: block;
             }
-            
+
             .hero h1 {
                 font-size: 2.2rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
-            
+
             .members-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .header-container {
                 padding: 15px 0;
             }
-            
+
             .logo {
                 font-size: 1.5rem;
             }
@@ -743,23 +769,23 @@
             .hero {
                 padding: 70px 0;
             }
-            
+
             section {
                 padding: 60px 0;
             }
-            
+
             .hero h1 {
                 font-size: 1.8rem;
             }
-            
+
             .section-title {
                 font-size: 1.8rem;
             }
-            
+
             .mobile-sort-row {
                 flex-direction: column;
             }
-            
+
             .mobile-sort-select {
                 width: 100%;
             }
@@ -775,6 +801,7 @@
         }
     </style>
 </head>
+
 <body class="lang-en">
     <!-- Mobile Navigation Overlay -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
@@ -787,14 +814,14 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
+
         <ul class="mobile-nav-links">
             <li><a href="#home" class="mobile-nav-link">Home</a></li>
             <li><a href="#members" class="mobile-nav-link">Members</a></li>
             <li><a href="#about" class="mobile-nav-link">About</a></li>
             <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
         </ul>
-        
+
         <div class="mobile-nav-controls">
             <button class="theme-toggle" id="mobileThemeToggle">
                 <i class="fas fa-moon"></i>
@@ -811,7 +838,7 @@
                 <i class="fas fa-users"></i>
                 <span class="logo-text">Chairman Goli Vondo Porishodh</span>
             </div>
-            
+
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home" class="nav-link">Home</a></li>
@@ -820,7 +847,7 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            
+
             <div class="header-controls">
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
@@ -870,13 +897,6 @@
                 </div>
             </div>
             <div class="mobile-sort-row">
-                <select class="mobile-sort-select" id="mobileCategoryFilter">
-                    <option value="all">All Members</option>
-                    <option value="president">President</option>
-                    <option value="vice-president">Vice President</option>
-                    <option value="secretary">Secretary</option>
-                    <option value="member">Members</option>
-                </select>
                 <select class="mobile-sort-select" id="mobileSortBy">
                     <option value="name">Sort by Name</option>
                     <option value="position">Sort by Position</option>
@@ -900,13 +920,16 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Our Mission & Vision</h3>
-                    <p>The Chairman Goli Vondo Porishodh is committed to fostering community development, and doing vondami</p>
+                    <p>The Chairman Goli Vondo Porishodh is committed to fostering community development, and doing
+                        vondami</p>
                     <p>Founded with the vision of becoming a neshakhor vondo</p>
-                    <p>Through regular meetings, collaborative projects, and open communication, we strive to create an environment where every voice is heard and every member can contribute to our shared goals.</p>
+                    <p>Through regular meetings, collaborative projects, and open communication, we strive to create an
+                        environment where every voice is heard and every member can contribute to our shared goals.</p>
                     <a href="#contact" class="btn">Get In Touch</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551135049-8a33b42738b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Committee Meeting">
+                    <img src="meeting.png" style="width: 400px; height: 400px;"
+                        alt="Committee Meeting">
                 </div>
             </div>
         </div>
@@ -1124,8 +1147,8 @@
         // Language data
         const languages = {
             en: {
-                heroTitle: "Chairam Goli Vondo Porishodh",
-                heroDescription: "A dedicated committee working for community development and member cooperation.",
+                heroTitle: "Chairman Goli Vondo Porishodh",
+                heroDescription: "A dedicated committee working for doing vondami",
                 meetMembers: "Meet Our Members",
                 ourMembers: "Our Committee Members",
                 aboutTitle: "About Our Committee",
@@ -1145,8 +1168,8 @@
                 member: "Members",
                 searchPlaceholder: "Search members...",
                 mission: "Our Mission & Vision",
-                missionText1: "The Chairam Goli Vondo Porishodh is committed to fostering community development, promoting cooperation among members, and addressing local issues through collective action.",
-                missionText2: "Founded with the vision of creating a harmonious and progressive community, our committee works tirelessly to implement initiatives that benefit all members and strengthen community bonds.",
+                missionText1: "The Chairman Goli Vondo Porishodh is committed to fostering community development, and doing vondami",
+                missionText2: "Founded with the vision of becoming a neshakhor vondo",
                 missionText3: "Through regular meetings, collaborative projects, and open communication, we strive to create an environment where every voice is heard and every member can contribute to our shared goals.",
                 getInTouch: "Get In Touch",
                 footerText: "Working together for a better community. Join us in our mission to create positive change.",
@@ -1168,7 +1191,7 @@
             },
             bn: {
                 heroTitle: "চেয়ারম্যান গলি ভন্ড পরিষদ",
-                heroDescription: "সম্প্রদায় উন্নয়ন এবং সদস্য সহযোগিতার জন্য নিবেদিত একটি কমিটি।",
+                heroDescription: "ভন্ডামি করার জন্য নিবেদিত একটি কমিটি।",
                 meetMembers: "আমাদের সদস্যদের সাথে পরিচিত হোন",
                 ourMembers: "আমাদের কমিটির সদস্যরা",
                 aboutTitle: "আমাদের কমিটি সম্পর্কে",
@@ -1188,8 +1211,8 @@
                 member: "সদস্যরা",
                 searchPlaceholder: "সদস্য খুঁজুন...",
                 mission: "আমাদের মিশন ও ভিশন",
-                missionText1: "চেয়ারম্যান গলি ভন্ড পরিষদ সম্প্রদায় উন্নয়ন, সদস্যদের মধ্যে সহযোগিতা প্রচার এবং সম্মিলিত পদক্ষেপের মাধ্যমে স্থানীয় সমস্যাগুলি সমাধানের জন্য প্রতিশ্রুতিবদ্ধ।",
-                missionText2: "একটি সুরেলা এবং প্রগতিশীল সম্প্রদায় তৈরির দৃষ্টিভঙ্গি নিয়ে প্রতিষ্ঠিত, আমাদের কমিটি এমন উদ্যোগ বাস্তবায়নের জন্য অক্লান্ত পরিশ্রম করে যা সমস্ত সদস্যের উপকার করে এবং সম্প্রদায়ের বন্ধন শক্তিশালী করে।",
+                missionText1: "চেয়ারম্যান গলি ভন্ড পরিষদ সম্প্রদায় উন্নয়ন এবং ভন্ডামি করার জন্য প্রতিশ্রুতিবদ্ধ।",
+                missionText2: "একটি নেশাখোর ভন্ড হওয়ার দৃষ্টিভঙ্গি নিয়ে প্রতিষ্ঠিত",
                 missionText3: "নিয়মিত সভা, সহযোগিতামূলক প্রকল্প এবং উন্মুক্ত যোগাযোগের মাধ্যমে, আমরা এমন একটি পরিবেশ তৈরি করতে চেষ্টা করি যেখানে প্রতিটি কণ্ঠস্বর শোনা যায় এবং প্রতিটি সদস্য আমাদের সম্মিলিত লক্ষ্যে অবদান রাখতে পারে।",
                 getInTouch: "যোগাযোগ করুন",
                 footerText: "একটি উন্নত সম্প্রদায়ের জন্য একসাথে কাজ করা। ইতিবাচক পরিবর্তন তৈরির আমাদের মিশনে যোগ দিন।",
@@ -1243,11 +1266,16 @@
         function renderMembers() {
             membersGrid.innerHTML = '';
 
+            if (filteredMembers.length === 0) {
+                membersGrid.innerHTML = `<div class="no-results" style="text-align: center; padding: 40px; color: var(--text-light);">No members found matching your criteria.</div>`;
+                return;
+            }
+
             filteredMembers.forEach(member => {
                 const memberCard = document.createElement('div');
                 memberCard.className = 'member-card';
                 memberCard.innerHTML = `
-                    <img src="${member.image}" alt="${member.name}" class="member-image">
+                    <img src="${member.image || 'https://via.placeholder.com/300x300?text=No+Image'}" alt="${member.name}" class="member-image">
                     <div class="member-info">
                         <h3 class="member-name">${member.name}</h3>
                         <p class="member-position">${member.positionDisplay}</p>
@@ -1274,7 +1302,7 @@
                             <a href="tel:${member.phone}" class="social-link" title="Phone">
                                 <i class="fas fa-phone"></i>
                             </a>
-                            <a href="https://instagram.com/${member.instagram}" target="_blank" class="social-link" title="Instagram">
+                            <a href="${member.instagram}" target="_blank" class="social-link" title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="${member.facebook}" target="_blank" class="social-link" title="Facebook">
@@ -1288,11 +1316,11 @@
                 // Add event listener to toggle details
                 const toggleBtn = memberCard.querySelector('.toggle-details');
                 const details = memberCard.querySelector('.member-details');
-                
+
                 toggleBtn.addEventListener('click', () => {
                     details.classList.toggle('active');
-                    toggleBtn.textContent = details.classList.contains('active') 
-                        ? (currentLanguage === 'en' ? 'Hide Details' : 'বিস্তারিত লুকান') 
+                    toggleBtn.textContent = details.classList.contains('active')
+                        ? (currentLanguage === 'en' ? 'Hide Details' : 'বিস্তারিত লুকান')
                         : (currentLanguage === 'en' ? 'View Details' : 'বিস্তারিত দেখুন');
                 });
             });
@@ -1338,8 +1366,15 @@
                 });
             });
 
-            mobileCategoryFilter.addEventListener('change', filterMembers);
-            mobileSortBy.addEventListener('change', sortMembers);
+            // Mobile category filter - FIXED
+            mobileCategoryFilter.addEventListener('change', () => {
+                filterMembers();
+            });
+
+            // Mobile sort by - FIXED
+            mobileSortBy.addEventListener('change', () => {
+                sortMembers();
+            });
 
             // Contact form
             contactForm.addEventListener('submit', (e) => {
@@ -1376,65 +1411,92 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Filter members based on search and category
+        // Filter members based on search and category - FIXED
         function filterMembers() {
             const searchTerm = (searchInput.value || mobileSearchInput.value).toLowerCase();
             const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || mobileCategoryFilter.value;
 
+            console.log('Filtering with:', { searchTerm, activeFilter }); // Debug log
+
             filteredMembers = members.filter(member => {
-                const matchesSearch = member.name.toLowerCase().includes(searchTerm) || 
-                                     member.positionDisplay.toLowerCase().includes(searchTerm) ||
-                                     member.bio.toLowerCase().includes(searchTerm);
+                const matchesSearch = member.name.toLowerCase().includes(searchTerm) ||
+                    member.positionDisplay.toLowerCase().includes(searchTerm) ||
+                    member.bio.toLowerCase().includes(searchTerm);
                 const matchesCategory = activeFilter === 'all' || member.position === activeFilter;
-                
+
                 return matchesSearch && matchesCategory;
             });
 
-            // Apply sorting if mobile sort is active
-            const sortValue = mobileSortBy.value;
-            if (sortValue !== 'name') {
-                sortMembers();
-            } else {
-                renderMembers();
-            }
+            console.log('Filtered members:', filteredMembers); // Debug log
+
+            // Apply sorting
+            sortMembers();
         }
 
-        // Sort members
+        // Sort members - FIXED
         function sortMembers() {
             const sortBy = mobileSortBy.value;
-            
+
+            console.log('Sorting by:', sortBy); // Debug log
+
             filteredMembers.sort((a, b) => {
                 if (sortBy === 'name') {
                     return a.name.localeCompare(b.name);
                 } else if (sortBy === 'position') {
-                    return a.position.localeCompare(b.position);
+                    // Sort by position hierarchy
+                    const positionOrder = { 'president': 1, 'vice-president': 2, 'secretary': 3, 'member': 4 };
+                    return positionOrder[a.position] - positionOrder[b.position];
                 } else if (sortBy === 'age') {
                     return a.age - b.age;
                 }
                 return 0;
             });
-            
+
+            renderMembers();
+        }
+        // Mobile sort by - Only sorting functionality
+        mobileSortBy.addEventListener('change', () => {
+            sortMembers();
+        });
+
+        // Sort members function
+        function sortMembers() {
+            const sortBy = mobileSortBy.value;
+
+            filteredMembers.sort((a, b) => {
+                if (sortBy === 'name') {
+                    return a.name.localeCompare(b.name);
+                } else if (sortBy === 'position') {
+                    // Sort by position hierarchy
+                    const positionOrder = { 'president': 1, 'vice-president': 2, 'secretary': 3, 'member': 4 };
+                    return positionOrder[a.position] - positionOrder[b.position];
+                } else if (sortBy === 'age') {
+                    return a.age - b.age;
+                }
+                return 0;
+            });
+
             renderMembers();
         }
 
         // Update text content based on language
         function updateLanguageTexts() {
             const lang = languages[currentLanguage];
-            
+
             // Update hero section
             document.querySelector('.hero-title').textContent = lang.heroTitle;
             document.querySelector('.hero-description').textContent = lang.heroDescription;
             document.querySelector('.hero .btn').textContent = lang.meetMembers;
-            
+
             // Update section titles
             document.querySelector('#members .section-title').textContent = lang.ourMembers;
             document.querySelector('#about .section-title').textContent = lang.aboutTitle;
             document.querySelector('#contact .section-title').textContent = lang.contactTitle;
-            
+
             // Update search placeholder
             searchInput.placeholder = lang.searchPlaceholder;
             mobileSearchInput.placeholder = lang.searchPlaceholder;
-            
+
             // Update filter buttons
             if (document.querySelector('[data-filter="all"]')) {
                 document.querySelector('[data-filter="all"]').textContent = lang.all;
@@ -1443,7 +1505,7 @@
                 document.querySelector('[data-filter="secretary"]').textContent = lang.secretary;
                 document.querySelector('[data-filter="member"]').textContent = lang.member;
             }
-            
+
             // Update mobile filters
             mobileCategoryFilter.innerHTML = `
                 <option value="all">${lang.allMembers}</option>
@@ -1452,52 +1514,52 @@
                 <option value="secretary">${lang.secretary}</option>
                 <option value="member">${lang.member}</option>
             `;
-            
+
             mobileSortBy.innerHTML = `
                 <option value="name">${lang.sortByName}</option>
                 <option value="position">${lang.sortByPosition}</option>
                 <option value="age">${lang.sortByAge}</option>
             `;
-            
+
             // Update about section
             document.querySelector('.about-text h3').textContent = lang.mission;
             document.querySelector('.about-text p:nth-child(2)').textContent = lang.missionText1;
             document.querySelector('.about-text p:nth-child(3)').textContent = lang.missionText2;
             document.querySelector('.about-text p:nth-child(4)').textContent = lang.missionText3;
             document.querySelector('.about-text .btn').textContent = lang.getInTouch;
-            
+
             // Update contact section
             document.querySelector('.contact-item:nth-child(1) h4').textContent = lang.location;
             document.querySelector('.contact-item:nth-child(2) h4').textContent = lang.phone;
             document.querySelector('.contact-item:nth-child(3) h4').textContent = lang.email;
             document.querySelector('.contact-item:nth-child(4) h4').textContent = lang.hours;
-            
+
             document.querySelector('label[for="name"]').textContent = lang.yourName;
             document.querySelector('label[for="email"]').textContent = lang.yourEmail;
             document.querySelector('label[for="message"]').textContent = lang.yourMessage;
             document.querySelector('#contactForm .btn').textContent = lang.sendMessage;
-            
+
             // Update footer
             document.querySelector('.footer-column:nth-child(1) p').textContent = lang.footerText;
             document.querySelector('.footer-column:nth-child(2) h3').textContent = lang.quickLinks;
             document.querySelector('.footer-column:nth-child(3) h3').textContent = lang.followUs;
             document.querySelector('.footer-bottom p:first-child').textContent = lang.copyright;
             document.querySelector('.developer-credit').textContent = lang.developedBy;
-            
+
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks[0].textContent = lang.home;
             navLinks[1].textContent = lang.members;
             navLinks[2].textContent = lang.about;
             navLinks[3].textContent = lang.contact;
-            
+
             // Update mobile navigation
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
             mobileNavLinks[0].textContent = lang.home;
             mobileNavLinks[1].textContent = lang.members;
             mobileNavLinks[2].textContent = lang.about;
             mobileNavLinks[3].textContent = lang.contact;
-            
+
             document.querySelector('.mobile-nav-logo').textContent = lang.heroTitle;
         }
 
@@ -1507,4 +1569,3 @@
 </body>
 
 </html>
-
